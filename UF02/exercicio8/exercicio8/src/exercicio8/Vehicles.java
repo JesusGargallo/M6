@@ -13,19 +13,19 @@ public class Vehicles implements Serializable {
     @Id @GeneratedValue
     private long id;
 
-    private int anyModel;
+    private int añoModelo;
     private String marca;
-    private Date data;
-    private boolean isRojo;
+    private Date dia;
+    private boolean isNegro;
 
     public Vehicles(){
     }
 
-    Vehicles(String marca, int anyModel, Date data, boolean isRojo){
+    Vehicles(String marca, int añoModelo, Date dia, boolean isNegro){
         this.marca = marca;
-        this.anyModel = anyModel;
-        this.data = data;
-        this.isRojo = isRojo;
+        this.añoModelo = añoModelo;
+        this.dia = dia;
+        this.isNegro = isNegro;
 
     }
 
@@ -37,22 +37,22 @@ public class Vehicles implements Serializable {
         return marca;
     }
 
-    public int getAnyModel(){
-        return anyModel;
+    public int getAñoModelol(){
+        return añoModelo;
     }
 
-    public Date getData(){
-        return data;
+    public Date getDia(){
+        return dia;
     }
 
-    public boolean getIsRojo(){
-        return isRojo;
+    public boolean getIsNegro(){
+        return isNegro;
     }
 
     @Override
     public String toString() {
-        return "Vehicles{" + "id=" + id + ", anyModel=" + anyModel + ", marca="
-                + marca + ", data=" + data + ", isRojo=" + isRojo + '}';
+        return "Vehicles{" + "id=" + id + ", añoModelo=" + añoModelo + ", marca="
+                + marca + ", dia=" + dia + ", isNegro=" + isNegro + '}';
     }
 
 
