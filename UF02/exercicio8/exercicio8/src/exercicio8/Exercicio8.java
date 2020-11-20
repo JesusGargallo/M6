@@ -21,7 +21,7 @@ public class Exercicio8 {
 
         
         //los datos de los propietarios.
-        System.out.println("Introduce el primer propietario:");
+        System.out.println("Introduce el primer propietario");
         em.getTransaction().begin();
         while(preguntando == true){
             System.out.println("Nombre:");
@@ -30,12 +30,13 @@ public class Exercicio8 {
             System.out.println("Cuantos años de carnet tienes:");
             añosdecarnet = sc.nextInt();
             
-            System.out.println("Dia de nacimiento:");
+            System.out.println("Nacimiento:");
             nacimiento = sc.next();
             Date nacimientoE = sdf.parse(nacimiento);
             
             System.out.println("Es Discapacitado? ");
             isdiscapacitado = sc.nextBoolean();
+            
             
             Propietaris pro;
             pro = new Propietaris
@@ -60,8 +61,7 @@ public class Exercicio8 {
         preguntando = true;
         
         //  aqui ponemos los datos de los vehiculos.
-        System.out.println("Introduce el primer coche:");
-        em.getTransaction().begin();
+        System.out.println("Introduce el primer coche");
         while(preguntando == true){
             System.out.println("Marca:");
             marca = sc.nextLine();
@@ -107,7 +107,7 @@ public class Exercicio8 {
            if(menunaso == 1){
                //si escogemos el 1 hara esto.
                 TypedQuery<Propietaris> query =
-                em.createQuery("SELECT p FROM Propietaris pro", Propietaris.class);
+                em.createQuery("SELECT pro FROM Propietaris pro", Propietaris.class);
                 List<Propietaris> results = query.getResultList();
                 for (Propietaris pro : results) {
                     System.out.println(pro);
@@ -115,7 +115,7 @@ public class Exercicio8 {
            } else {
                //si escogemos el 2 hara esto.
                TypedQuery<Vehicles> query =
-                em.createQuery("SELECT p FROM Vehicles veh", Vehicles.class);
+                em.createQuery("SELECT veh FROM Vehicles veh", Vehicles.class);
                 List<Vehicles> results = query.getResultList();
                 for (Vehicles veh : results) {
                     System.out.println(veh);
