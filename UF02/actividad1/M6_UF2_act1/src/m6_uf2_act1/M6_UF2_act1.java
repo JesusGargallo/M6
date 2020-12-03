@@ -64,6 +64,18 @@ public class M6_UF2_act1 {
                                 } catch (Exception e) {
                                     System.out.println("No es pot repetir el codi postal");
                                 }	
+                        } else if (eleccio == 2){
+				System.out.println("Elegeix una taula");
+				String eleccioTaula = teclado.next();
+				System.out.println("Elegeix columna");
+				String eleccioColumna = teclado.next();
+				System.out.println("Afegeix el valor");
+				String valorColumna = teclado.next();
+                                System.out.println("Valor a modificar per DNI");
+                                String valorAnterior = teclado.next();
+
+				selectStmt = connection.createStatement();
+				ResultSet rs = (ResultSet) selectStmt.executeQuery("UPDATE " + eleccioTaula + " SET " + eleccioColumna + " = '" +valorColumna + " WHERE dni = '" + valorAnterior +"' )"); 
                         } 
                       }
                         
