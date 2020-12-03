@@ -18,17 +18,18 @@ public class M6_UF2_act1 {
 		Connection connection = null;
 		Statement stmt = null;
 		Statement selectStmt = null;
+                
 		try {
 		
                     
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/m6_uf2_act1", "root", "");			
 
-			System.out.println("1- Afegir columnes(alumnes) | 2- Modificar columnes | 3- Eliminar columnes | 4- Afegir columnes(poblacions)");
+			System.out.println("1- Afegir columnes(alumnes) | 2- Modificar columnes | 3- Eliminar columnes | 4- Afegir columnes(poblacions | 5-Salir)");
 			int eleccio = teclado.nextInt();
                         teclado.nextLine();
-                        
-			if(eleccio == 1){
+                        while(eleccio != 5){
+                           if(eleccio == 1){
                                 System.out.println("Afegeix un NOM");
 				String nom = teclado.next();
 				System.out.println("Afegeix un DNI");
@@ -56,10 +57,17 @@ public class M6_UF2_act1 {
 				String nomPoblacio = teclado.next();
 				System.out.println("Afegeix un codi postal");
 				int codiPostalPoblacio = teclado.nextInt();
-
-				stmt = connection.createStatement();
-				stmt.execute("INSERT INTO alumnes VALUES ('" + nomPoblacio + "'," + codiPostalPoblacio + ")");
-                        }
+                                
+                                try{
+                                    stmt = connection.createStatement();
+                                    stmt.execute("INSERT INTO alumnes VALUES ('" + nomPoblacio + "'," + codiPostalPoblacio + ")");
+                                } catch (Exception e) {
+                                    System.out.println("No es pot repetir el codi postal");
+                                }	
+                        } 
+                      }
+                        
+                        
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
