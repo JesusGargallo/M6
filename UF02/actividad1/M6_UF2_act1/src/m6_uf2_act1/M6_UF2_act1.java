@@ -75,6 +75,7 @@ public class M6_UF2_act1 {
                                 String valorAnterior = teclado.next();
 
 				selectStmt = connection.createStatement();
+                                
 				ResultSet rs = (ResultSet) selectStmt.executeQuery("UPDATE " + eleccioTaula + " SET " + eleccioColumna + " = '" +valorColumna + " WHERE dni = '" + valorAnterior +"' )"); 
                         } 
                       }
